@@ -15,6 +15,24 @@ def limpar_tela():
     os.system("cls")
 
 
+def obter_todas_marcas():
+    conexao = mysql.connector.connect(
+        host="127.0.0.1",
+        port=3306,
+        user="root",
+        password="a1s2d3f4",
+        database="dev_motors" 
+    )
+    print("Conectado com Sucesso")
+    cursor = conexao.cursor()
+    cursor.execute("SELECT id, nome, cnpj FROM marcas")
+    # fetchall buscar todos os registros encontrados na consulta
+    registros = cursor.fetchall()
+    # fechar a conexão com o banco de dados
+    conexao.close() 
+    return registros
+
+
 def menu_marcas():
     opcao_escolhida = ""
     while opcao_escolhida != "Sair":
@@ -58,20 +76,7 @@ def inserir_marca(): # create
 
 
 def consultar_marcas(): # read
-    conexao = mysql.connector.connect(
-        host="127.0.0.1",
-        port=3306,
-        user="root",
-        password="a1s2d3f4",
-        database="dev_motors" 
-    )
-    print("Conectado com Sucesso")
-    cursor = conexao.cursor()
-    cursor.execute("SELECT id, nome, cnpj FROM marcas")
-    # fetchall buscar todos os registros encontrados na consulta
-    registros = cursor.fetchall()
-    # fechar a conexão com o banco de dados
-    conexao.close() 
+    registros = obter_todas_marcas()
 
     table = Table(title="Consulta de Marcas")
 
@@ -103,6 +108,19 @@ def atualizar_marca(): # update
 
 
 def apagar_marca(): # delete
+    # Consultar todas as marcas
+    marcas = obter_todas_marcas()
+    # Criar um vetor com as marcas para o usuario poder escolher a marca que deseja apagar
+    opcoes = []
+    for marca in marcas:
+        opcoes.append(marca[1])
+
+    # Perguntando para o usuario qual marca ele deseja apagar
+    marca_apagar = questionary.select(
+        "Escolha uma marca para apagar",
+        choices=opcoes,
+    ).ask()
+    # Abrir a conexão
     conexao = mysql.connector.connect(
         host="127.0.0.1",
         port=3306,
@@ -110,11 +128,10 @@ def apagar_marca(): # delete
         password="a1s2d3f4",
         database="dev_motors" 
     )
-    print("Conectado com Sucesso")
     cursor = conexao.cursor()
-    cursor.execute("DELETE * FROM marcas")
-    conexao.commit() 
+    cursor.execute(f"DELETE FROM marcas WHERE nome = '" + marca_apagar + "'")
+    conexao.commit() #efetuar a transação
     conexao.close()
 
 if __name__ == "__main__":
-    menu_marcas()
+    apagar_marca()
