@@ -1,6 +1,6 @@
 from marcas import menu_marcas
 from modelos import menu_modelos
-from banco_dev_motors.cores import menu_cores
+from cores import menu_cores
 import questionary
 
 def menu():
