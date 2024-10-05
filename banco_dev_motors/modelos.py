@@ -113,3 +113,4 @@ def inserir_modelo():
     nome = questionary.text("Digite o nome do modelo").ask()
     cadastrar(id_marca_escolhida, nome)
     print("Cadastrado com sucesso")
+    

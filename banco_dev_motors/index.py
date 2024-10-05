@@ -4,12 +4,14 @@ from cores import menu_cores
 from proprietarios import menu_proprietarios
 from opcionais import menu_opcionais
 from clientes import menu_clientes
+from versoes import menu_versoes
 import questionary
 
 def menu():
     opcoes = [
         "Marcas",
         "Modelos",
+        "Versões",
         "Cores",
         "Proprietarios",
         "Opcionais",
@@ -25,6 +27,8 @@ def menu():
             menu_marcas()
         elif menu_escolhido == "Modelos":
             menu_modelos()
+        elif menu_escolhido == "Versões":
+            menu_versoes()
         elif menu_escolhido == "Cores":
             menu_cores()
         elif menu_escolhido == "Proprietarios":

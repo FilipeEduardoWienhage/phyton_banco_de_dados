@@ -60,3 +60,13 @@ class Cliente:
         self.cep = cep
         self.numero = numero
         self.complemento = complemento
+
+
+class Versao:
+    def __init__(self, id: int, modelo: Modelo, nome: str, motor: str):
+        self.id = id
+        self.modelo = modelo
+        self.nome = nome
+        self.motor = motor
+        
+        

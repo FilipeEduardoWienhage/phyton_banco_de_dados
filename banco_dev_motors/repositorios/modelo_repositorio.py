@@ -1,5 +1,4 @@
 from typing import List
-
 from banco_dados import conectar
 from entidades import Marca, Modelo
 
