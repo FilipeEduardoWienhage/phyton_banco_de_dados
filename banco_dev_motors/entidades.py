@@ -36,3 +36,9 @@ class Proprietario:
         self.numero = numero
         self.complemento = complemento
         
+
+class Opcional:
+    def __init__(self, id: int, nome: str):
+        self.id = id
+        self.nome = nome
+        
