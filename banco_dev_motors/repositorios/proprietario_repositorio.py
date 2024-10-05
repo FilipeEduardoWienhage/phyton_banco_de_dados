@@ -39,10 +39,10 @@ def cadastrar(nome, cpf_cnpj, data_nascimento, email, celular, estado, cidade, b
     conexao.close()
 
 
-def atualizar(id, nome, cpf_cnpj, data_nascimento, email, celular, estado, cidade, bairro, logradouro, cep, numero, complemento):
+def atualizar(nome, cpf_cnpj, email, celular, estado, cidade, bairro, logradouro, cep, numero, complemento):
     conexao = conectar()
     cursor = conexao.cursor()
-    cursor.execute("UPDATE proprietarios SET ")
+    cursor.execute("UPDATE proprietarios SET nome = %s, cpf_cnpj = %s, email = %s, celular = %s, estado = %s, cidade = %s, bairro = %s, logradouro = %s, cep = %s, numero = %s, complemento = %s", (nome, cpf_cnpj, email, celular, estado, cidade, bairro, logradouro, cep, numero, complemento))
     conexao.commit()
     conexao.close()
 
