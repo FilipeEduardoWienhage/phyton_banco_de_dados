@@ -39,6 +39,7 @@ def menu_marcas():
         elif opcao_escolhida == "Apagar marca":
             apagar_marca()
 
+
 def inserir_marca(): # create
 
     nome = questionary.text("Informe o nome da marca: ").ask()

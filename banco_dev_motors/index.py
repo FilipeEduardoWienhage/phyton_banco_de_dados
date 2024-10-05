@@ -1,6 +1,7 @@
 from marcas import menu_marcas
 from modelos import menu_modelos
 from cores import menu_cores
+from proprietarios import menu_proprietarios
 import questionary
 
 def menu():
@@ -8,6 +9,7 @@ def menu():
         "Marcas",
         "Modelos",
         "Cores",
+        "Proprietarios",
         "Sair"
     ]
     menu_escolhido = ""
@@ -21,6 +23,8 @@ def menu():
             menu_modelos()
         elif menu_escolhido == "Cores":
             menu_cores()
+        elif menu_escolhido == "Proprietarios":
+            menu_proprietarios()
 
 if __name__ == "__main__":
     menu()
