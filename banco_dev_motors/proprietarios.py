@@ -56,7 +56,7 @@ def consultar_proprietario():
     table.add_column("Complemento", justify="center", style="green")
 
     for proprietario in proprietarios:
-        table.add_row(str(proprietario.id), proprietario.nome, proprietario.cpf_cnpj, str(proprietario.data_nascimento), proprietario.email, proprietario.celular, proprietario.estado, proprietario.cidade, proprietario.bairro, proprietario.logradouro, proprietario.numero,   proprietario.complemento,proprietario.cep)
+        table.add_row(str(proprietario.id), proprietario.nome, proprietario.cpf_cnpj, str(proprietario.data_nascimento), proprietario.email, proprietario.celular, proprietario.estado, proprietario.cidade, proprietario.bairro, proprietario.logradouro, proprietario.numero, proprietario.complemento,proprietario.cep)
 
     console = Console()
     console.print(table)
@@ -107,7 +107,6 @@ def atualizar_proprietario():
     numero_editado = questionary.text("Informe o numero da residencia: ").ask()
     complemento_editado = questionary.text("Informe o complemento: ").ask()
     atualizar(nome_editado, cpf_cnpj_editado, email_editado, celular_editado, estado_editado, cidade_editada, bairro_editado, logradouro_editado, cep_editado, numero_editado, complemento_editado)
-
 
 
 def apagar_proprietario():
