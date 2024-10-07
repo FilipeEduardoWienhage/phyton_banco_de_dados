@@ -68,5 +68,3 @@ class Versao:
         self.modelo = modelo
         self.nome = nome
         self.motor = motor
-        
-        
