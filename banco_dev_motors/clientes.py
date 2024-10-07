@@ -56,7 +56,7 @@ def consultar_cliente():
     table.add_column("Complemento", justify="center", style="green")
 
     for cliente in clientes:
-        table.add_row(str(cliente.id), cliente.nome, cliente.cpf_cnpj, str(cliente.data_nascimento), cliente.email, cliente.celular, cliente.estado, cliente.cidade, cliente.bairro, cliente.logradouro, cliente.numero, cliente.complemento, cliente.cep)
+        table.add_row(str(cliente.id), cliente.nome, cliente.cpf_cnpj, str(cliente.data_nascimento), cliente.email, cliente.celular, cliente.estado, cliente.cidade, cliente.bairro, cliente.logradouro, cliente.cep, cliente.numero, cliente.complemento )
 
     console = Console()
     console.print(table)

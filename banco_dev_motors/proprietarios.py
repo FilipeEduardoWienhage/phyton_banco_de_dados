@@ -56,7 +56,7 @@ def consultar_proprietario():
     table.add_column("Complemento", justify="center", style="green")
 
     for proprietario in proprietarios:
-        table.add_row(str(proprietario.id), proprietario.nome, proprietario.cpf_cnpj, str(proprietario.data_nascimento), proprietario.email, proprietario.celular, proprietario.estado, proprietario.cidade, proprietario.bairro, proprietario.logradouro, proprietario.numero, proprietario.complemento,proprietario.cep)
+        table.add_row(str(proprietario.id), proprietario.nome, proprietario.cpf_cnpj, str(proprietario.data_nascimento), proprietario.email, proprietario.celular, proprietario.estado, proprietario.cidade, proprietario.bairro, proprietario.logradouro, proprietario.cep, proprietario.numero, proprietario.complemento)
 
     console = Console()
     console.print(table)
