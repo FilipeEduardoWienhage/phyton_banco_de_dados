@@ -100,3 +100,19 @@ class Veiculo:
         self.ano_fabricacao = ano_fabricacao
         self.ano_modelo = ano_modelo
         self.novo = novo
+
+
+class Venda:
+    def __init__(self, id: int, cliente: Cliente, veiculo: Veiculo, valor: float, data: str):
+        self.id = id
+        self.cliente = cliente
+        self.veiculo = veiculo
+        self.valor = valor
+        self.data = data
+
+
+class Veiculo_Opcional:
+    def __init__(self, id: int, veiculo: Veiculo, opcional: Opcional):
+        self.id = id
+        self.veiculo = veiculo
+        self.opcional = opcional

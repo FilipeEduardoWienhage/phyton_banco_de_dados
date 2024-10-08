@@ -31,3 +31,15 @@ def cadastrar(
     cursor.execute("""INSERT INTO veiculos (id_proprietario, id_versao, id_cor, preco_inicial, preco_fipe, km, chassi, placa, renavam, ano_fabricacao, ano_modelo, novo) VALUES ( %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)""", (id_proprietario, id_versao, id_cor, preco_inicial, preco_fipe, km, chassi, placa, renavam, ano_fabricacao, ano_modelo, novo))
     conexao.commit()
     conexao.close()
+
+
+def atualizar():
+    pass
+
+
+def obter_todos_veiculos():
+    pass
+
+
+def apagar():
+    pass

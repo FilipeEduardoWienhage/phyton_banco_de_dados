@@ -6,6 +6,8 @@ from opcionais import menu_opcionais
 from clientes import menu_clientes
 from versoes import menu_versoes
 from veiculos import menu_veiculos
+from venda import menu_venda
+from veiculos_opcionais import menu_veiculos_opcionais
 import questionary
 
 def menu():
@@ -18,6 +20,8 @@ def menu():
         "Proprietarios",
         "Opcionais",
         "Clientes",
+        "Vendas",
+        "Veiculos Opcionais",
         "Sair"
     ]
     menu_escolhido = ""
@@ -41,6 +45,10 @@ def menu():
             menu_opcionais()
         elif menu_escolhido == "Clientes":
             menu_clientes()
+        elif menu_escolhido == "Vendas":
+            menu_venda()
+        elif menu_escolhido == "Veiculos Opcionais":
+            menu_veiculos_opcionais()
 
 
 if __name__ == "__main__":

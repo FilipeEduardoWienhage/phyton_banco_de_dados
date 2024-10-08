@@ -1,11 +1,11 @@
 import questionary
-from repositorios.veiculo_repositorio import cadastrar, atualizar, obter_todos_veiculos, apagar
+from repositorios.venda_repositorio import obter_todas_vendas, cadastrar, atualizar, apagar
 from rich.console import Console
 from rich.table import Table
 
 
 
-def menu_veiculos():
+def menu_venda():
     opcoes = [
         "Consultar",
         "Cadastrar",
@@ -15,28 +15,28 @@ def menu_veiculos():
     ]
     opcao_escolhida = ""
     while opcao_escolhida != "Sair":
-        opcao_escolhida = questionary.select("Menu Veiculos", opcoes).ask()
+        opcao_escolhida = questionary.select("Menu Venda", opcoes).ask()
         if opcao_escolhida == "Consultar":
-            consultar_veiculos()
+            consultar_vendas()
         elif opcao_escolhida == "Cadastrar":
-            inserir_veiculos()
+            inserir_vendas()
         elif opcao_escolhida == "Editar":
-            editar_veiculos()
+            editar_vendas()
         elif opcao_escolhida == "Apagar":
-            apagar_veiculos()
+            apagar_vendas()
 
 
-def consultar_veiculos():
+def consultar_vendas():
     pass
 
 
-def inserir_veiculos():
+def inserir_vendas():
     pass
 
 
-def editar_veiculos():
+def editar_vendas():
     pass
 
 
-def apagar_veiculos():
+def apagar_vendas():
     pass
