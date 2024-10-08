@@ -1,4 +1,5 @@
 import questionary
+from perguntar_entidade import escolher_marca, escolher_modelo_da_marca
 from repositorios.modelo_repositorio import obter_todos_modelos
 from repositorios.versao_repositorio import apagar, atualizar, cadastrar, obter_todas_versoes
 from rich.console import Console
@@ -34,7 +35,8 @@ def editar_versao():
     
     opcoes_para_escolher = []
     for versao in versoes:
-        opcoes_para_escolher.append(questionary.Choice(versao.nome, versao.id))
+        nome_marca = f"{versao.modelo.nome} => {versao.nome}"
+        opcoes_para_escolher.append(questionary.Choice(nome_marca, versao.id))
 
     id_versao_escolhida = questionary.select(
         "Escolha a versão para alterar", opcoes_para_escolher,
@@ -96,20 +98,15 @@ def consultar_versao():
     console.print(tabela)
 
 def inserir_versao():
-    modelos = obter_todos_modelos()
-    if len(modelos) == 0:
-        print("Nenhum Modelo Cadastrado")
+    marca = escolher_marca()
+    if marca is None:
+        return
+    modelo = escolher_modelo_da_marca(marca.id)
+    if modelo is None:
         return
     
-    opcoes_modelos_para_escolher = []
-    for modelo in modelos:
-        opcao = questionary.Choice(modelo.nome, modelo.id)
-        opcoes_modelos_para_escolher.append(opcao)
-
-    id_modelo_escolhido = questionary.select("Escolha o Modelo", opcoes_modelos_para_escolher).ask()
-
     nome = questionary.text("Digite o nome da versão").ask()
     motor = questionary.text("Digite a motorização da versão").ask()
-    cadastrar(id_modelo_escolhido, nome, motor)
+    cadastrar(modelo.id, nome, motor)
     print("Cadastrado com sucesso")
 

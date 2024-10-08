@@ -5,6 +5,7 @@ from proprietarios import menu_proprietarios
 from opcionais import menu_opcionais
 from clientes import menu_clientes
 from versoes import menu_versoes
+from veiculos import menu_veiculos
 import questionary
 
 def menu():
@@ -12,6 +13,7 @@ def menu():
         "Marcas",
         "Modelos",
         "Versões",
+        "Veiculos",
         "Cores",
         "Proprietarios",
         "Opcionais",
@@ -29,6 +31,8 @@ def menu():
             menu_modelos()
         elif menu_escolhido == "Versões":
             menu_versoes()
+        elif menu_escolhido == "Veiculos":
+            menu_veiculos()
         elif menu_escolhido == "Cores":
             menu_cores()
         elif menu_escolhido == "Proprietarios":
